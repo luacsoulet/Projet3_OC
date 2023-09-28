@@ -25,6 +25,7 @@ function genererProjets(projets) {
         // Création des balises
         const imageElement = document.createElement("img");
         imageElement.src = card.imageUrl;
+        imageElement.alt = card.title;
         const figcaptionElement = document.createElement("figcaption");
         figcaptionElement.innerText = card.title;
         // Rattachement à la balise article a la section gallery
