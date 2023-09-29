@@ -22,32 +22,34 @@ function genererProjets(projets) {
         const card = projets[i];
         sectionGallery.innerHTML += `
             <figure id="${card.id}">
-                <img src=${card.imageUrl} alt=${card.title}>
+                <img src=${card.imageUrl} alt="${card.title}">
                 <figcaption>${card.title}</figcaption>
             </figure>`
     }
 }
 
-async function genererButtons() {
-    const response = await fetch("http://localhost:5678/api/categories");
-    const buttons = await response.json();
+const divButtons = document.querySelector(".buttons-filter");
 
-    const divButtons = document.querySelector(".buttons-filter");
-    const allButton = document.createElement("button");
-    allButton.innerText = "Tous";
-    allButton.setAttribute("id", "0");
-    divButtons.appendChild(allButton);
-    for (let i = 0; i < buttons.length; i++) {
-        const button = buttons[i];
+const buttonAll = document.createElement("button");
+buttonAll.innerText = "Tous";
+buttonAll.setAttribute("id", "un");
 
-        divButtons.innerHTML += `
-            <button id="${button.id}">${button.name}</button>
-        `
-    }
-}
+const buttonObjects = document.createElement("button");
+buttonObjects.innerText = "Objects";
+buttonObjects.setAttribute("id", "deux");
 
+const buttonAppartments = document.createElement("button");
+buttonAppartments.innerText = "Appartements";
+buttonAppartments.setAttribute("id", "trois");
 
+const buttonHotRes = document.createElement("button");
+buttonHotRes.innerText = "Hôtels & restaurants";
+buttonHotRes.setAttribute("id", "quatre");
+
+divButtons.appendChild(buttonAll);
+divButtons.appendChild(buttonObjects);
+divButtons.appendChild(buttonAppartments);
+divButtons.appendChild(buttonHotRes);
 
 genererProjets(projets);
-genererButtons();
 
