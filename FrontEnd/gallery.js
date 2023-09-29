@@ -28,5 +28,26 @@ function genererProjets(projets) {
     }
 }
 
+async function genererButtons() {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const buttons = await response.json();
+
+    const divButtons = document.querySelector(".buttons-filter");
+    const allButton = document.createElement("button");
+    allButton.innerText = "Tous";
+    allButton.setAttribute("id", "0");
+    divButtons.appendChild(allButton);
+    for (let i = 0; i < buttons.length; i++) {
+        const button = buttons[i];
+
+        divButtons.innerHTML += `
+            <button id="${button.id}">${button.name}</button>
+        `
+    }
+}
+
+
+
 genererProjets(projets);
+genererButtons();
 
