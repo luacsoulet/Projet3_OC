@@ -33,6 +33,7 @@ const divButtons = document.querySelector(".buttons-filter");
 const buttonAll = document.createElement("button");
 buttonAll.innerText = "Tous";
 buttonAll.setAttribute("id", "un");
+buttonAll.setAttribute("class", "active");
 
 const buttonObjects = document.createElement("button");
 buttonObjects.innerText = "Objects";
@@ -53,6 +54,8 @@ divButtons.appendChild(buttonHotRes);
 
 buttonAll.addEventListener("click", function () {
     document.querySelector(".gallery").innerHTML = "";
+    document.querySelector(".active").setAttribute("class", "");
+    buttonAll.setAttribute("class", "active");
     genererProjets(projets);
 });
 
@@ -60,6 +63,8 @@ buttonObjects.addEventListener("click", function () {
     const projetsObjets = projets.filter(function (projet) {
         return projet.categoryId == 1;
     });
+    document.querySelector(".active").setAttribute("class", "");
+    buttonObjects.setAttribute("class", "active");
     document.querySelector(".gallery").innerHTML = "";
     genererProjets(projetsObjets);
 });
@@ -68,6 +73,8 @@ buttonAppartments.addEventListener("click", function () {
     const projetsAppartements = projets.filter(function (projet) {
         return projet.categoryId == 2;
     });
+    document.querySelector(".active").setAttribute("class", "");
+    buttonAppartments.setAttribute("class", "active");
     document.querySelector(".gallery").innerHTML = "";
     genererProjets(projetsAppartements);
 });
@@ -76,6 +83,8 @@ buttonHotRes.addEventListener("click", function () {
     const projetsHotRes = projets.filter(function (projet) {
         return projet.categoryId == 3;
     });
+    document.querySelector(".active").setAttribute("class", "");
+    buttonHotRes.setAttribute("class", "active");
     document.querySelector(".gallery").innerHTML = "";
     genererProjets(projetsHotRes);
 });
