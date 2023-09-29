@@ -72,5 +72,13 @@ buttonAppartments.addEventListener("click", function () {
     genererProjets(projetsAppartements);
 });
 
+buttonHotRes.addEventListener("click", function () {
+    const projetsHotRes = projets.filter(function (projet) {
+        return projet.categoryId == 3;
+    });
+    document.querySelector(".gallery").innerHTML = "";
+    genererProjets(projetsHotRes);
+});
+
 genererProjets(projets);
 
