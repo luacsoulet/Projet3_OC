@@ -64,5 +64,13 @@ buttonObjects.addEventListener("click", function () {
     genererProjets(projetsObjets);
 });
 
+buttonAppartments.addEventListener("click", function () {
+    const projetsAppartements = projets.filter(function (projet) {
+        return projet.categoryId == 2;
+    });
+    document.querySelector(".gallery").innerHTML = "";
+    genererProjets(projetsAppartements);
+});
+
 genererProjets(projets);
 
