@@ -51,5 +51,10 @@ divButtons.appendChild(buttonObjects);
 divButtons.appendChild(buttonAppartments);
 divButtons.appendChild(buttonHotRes);
 
+buttonAll.addEventListener("click", function () {
+    document.querySelector(".gallery").innerHTML = "";
+    genererProjets(projets);
+});
+
 genererProjets(projets);
 
