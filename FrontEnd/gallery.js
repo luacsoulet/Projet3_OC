@@ -28,6 +28,5 @@ function genererProjets(projets) {
     }
 }
 
-
 genererProjets(projets);
 
