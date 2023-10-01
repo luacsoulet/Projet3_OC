@@ -52,6 +52,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #FFFEF8;
 }
 header {
 	display: flex;
@@ -95,7 +96,7 @@ nav li {
 	padding: 0 10px;
 	font-size: 16px;
 	font-family: 'Work Sans';
-	font-weight: 400;
+	font-weight: 300;
 }
 
 nav li a{
@@ -223,7 +224,11 @@ input[type="submit"]{
 
 footer nav ul {
 	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+	justify-content:flex-end;
+	width: auto;
+	height: 60px;
+	background-color: #FFF;
+	font-family: 'Work Sans';
+	font-weight: 300;
 }
 
