@@ -2,3 +2,13 @@ header li:nth-child(3){
     color: #000;
 	font-weight:900;
 }
+
+section{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
