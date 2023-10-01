@@ -1,5 +1,5 @@
 export function connexionFormulaire() {
-    const formulaireConnexion = document.querySelector(".formulaire-avis");
+    const formulaireConnexion = document.querySelector("#connexion-form");
     formulaireConnexion.addEventListener("submit", async function (event) {
         event.preventDefault();
         // Création de l’objet du nouvel avis.
@@ -19,5 +19,7 @@ export function connexionFormulaire() {
         const token = await response.json();
         const valeurToken = JSON.stringify(token);
         window.sessionStorage.setItem("token", valeurToken);
-    });
+    })
 }
+
+connexionFormulaire();
