@@ -1,4 +1,4 @@
-export function connexionFormulaire() {
+function connexionFormulaire() {
     const formulaireConnexion = document.querySelector("#connexion-form");
     formulaireConnexion.addEventListener("submit", async function (event) {
         event.preventDefault();
