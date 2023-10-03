@@ -54,6 +54,26 @@ body {
 	font-size: 14px;
 	background: #FFFEF8;
 }
+
+.bandeau{
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	gap: 11.42px;
+	width:100vw;
+	height: 59px;
+	margin-left: calc(-1 * ((100vw - 100%) / 2));
+	background-color: #000;
+}
+.bandeau i{
+	color:#FFF ;
+}
+.bandeau p{
+	color: #FFF;
+	font-family: 'Work Sans';
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -135,6 +155,7 @@ li a:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	padding-top: 89px;
 }
 
