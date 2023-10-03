@@ -151,6 +151,7 @@ li a:hover {
 	margin-bottom: 0.5em;
 }
 
+
 #portfolio{
 	display: flex;
 	flex-direction: column;
@@ -159,8 +160,24 @@ li a:hover {
 	padding-top: 89px;
 }
 
+.div-mes-projets{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 31px;
+	margin-left: 125px;
+	margin-bottom: 92px;
+}
+
 #portfolio h2 {
 	text-align: center;
+}
+
+.div-modif{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10.24px;
 }
 
 .buttons-filter{
