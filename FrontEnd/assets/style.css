@@ -326,12 +326,44 @@ dialog::backdrop{
 
 
 #modal-gallery{
-	height: 424px;
-	width: 409.5px;
 	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	width: 409.5px;
 	gap: 6.3px;
-	border: solid #B3B3B3 1px;
+	border-bottom: solid #B3B3B3 1px;
 	margin: 46px 104.94px 38px;
+	padding-bottom: 47px;
+}
+
+.projet-selection{
+	width: 76.863px;
+	height: 102.568px;
+	margin-bottom: 20px;
+}
+
+.work-img{
+	width: 100% ;
+	height: 102.568px;
+}
+
+.delete-work{
+	position: relative;
+	bottom: 100px;
+	left: 55px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 17px;
+	height: 17px;
+	border: 0;
+	border-radius: 2px;
+	background-color: #000;
+}
+
+.delete-work i{
+	font-size: 10px;
+	color: #FFF;
 }
 
 #ajoutphoto{
