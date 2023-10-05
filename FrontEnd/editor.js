@@ -68,4 +68,32 @@ export async function modeEditor() {
 
         }
     }
+    getWorks();
+
+}
+
+async function getWorks() {
+    let projets = window.localStorage.getItem('projets')
+
+    if (projets == null) {
+        // Récupération des projets depuis l'API
+        const reponse = await fetch("http://localhost:5678/api/works/");
+        projets = await reponse.json();
+        // Transformation des projets en JSON
+        const valeurProjets = JSON.stringify(projets);
+        // Stockage des informations dans le localStorage
+        window.localStorage.setItem("projets", valeurProjets);
+    } else {
+        projets = JSON.parse(projets);
+    }
+
+    for (let i = 0; i < projets.length; i++) {
+        const work = projets[i];
+        const modalWorks = document.querySelector("#modal-gallery").innerHTML += `
+            <div class="projet-selection" id="${work.id}">
+                <img class="work-img" src=${work.imageUrl} alt="${work.title}">
+                <button class="delete-work"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        `
+    }
 }
