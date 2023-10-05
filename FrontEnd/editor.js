@@ -6,28 +6,23 @@ export async function modeEditor() {
 
     const bandeauEditor = document.createElement("div");
     bandeauEditor.setAttribute("class", "bandeau");
-
-    const logoEditor = document.createElement("i");
-    logoEditor.setAttribute("class", "fa-regular fa-pen-to-square");
-
-    const textEditor = document.createElement("p");
-    textEditor.innerText = "Mode édition";
+    bandeauEditor.innerHTML = `
+        <i class="fa-regular fa-pen-to-square"></i>
+        <p>Mode édition</p>
+    `
 
     parentDiv.insertBefore(bandeauEditor, headerDiv);
-    bandeauEditor.appendChild(logoEditor);
-    bandeauEditor.appendChild(textEditor);
 
     const divMesprojets = document.createElement("div");
     divMesprojets.setAttribute("class", "div-mes-projets");
 
     const divModifications = document.createElement("div");
     divModifications.setAttribute("class", "div-modif");
-
-    const logoEditorDeux = document.createElement("i");
-    logoEditorDeux.setAttribute("class", "fa-regular fa-pen-to-square");
-
-    const textEditorDeux = document.createElement("p");
-    textEditorDeux.innerText = "Mode édition";
+    divModifications.setAttribute("class", "open-button");
+    divModifications.innerHTML = `
+        <i class="fa-regular fa-pen-to-square"></i>
+        <button class="button" id="open-button">modifier</button>
+    `
 
     const gallery = document.querySelector(".gallery");
     const galleryParent = gallery.parentNode;
@@ -39,9 +34,38 @@ export async function modeEditor() {
     galleryParent.insertBefore(divMesprojets, titreH2);
     divMesprojets.appendChild(titreH2);
     divMesprojets.appendChild(divModifications);
-    divModifications.appendChild(logoEditorDeux);
-    divModifications.appendChild(textEditorDeux);
 
     const divButtons = document.querySelector(".buttons-filter").style.display = "none";
 
-};
+    const dialogModal = document.createElement("dialog");
+    dialogModal.setAttribute("class", "modal");
+    dialogModal.setAttribute("id", "modal");
+    dialogModal.innerHTML = `
+        <div class="modal-wrapper">
+            <button class="close-button fa-solid fa-xmark"></button>
+            <h3 id="modal-title">Galerie photo</h3>
+            <div id="modal-gallery"></div>
+            <button id="ajoutphoto">Ajouter une photo</button>
+        </div>`
+    parentDiv.insertBefore(dialogModal, headerDiv);
+
+    const modal = document.querySelector('#modal');
+    const openModal = document.querySelector('.open-button');
+    const closeModal = document.querySelector('.close-button');
+
+    openModal.addEventListener("click", () => {
+        modal.showModal();
+    })
+
+    closeModal.addEventListener("click", () => {
+        modal.close();
+    })
+
+    window.onclick = function (e) {
+        if (e.target == modal) {
+            modal.close();
+        } else {
+
+        }
+    }
+}
