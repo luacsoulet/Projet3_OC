@@ -173,11 +173,23 @@ li a:hover {
 	text-align: center;
 }
 
-.div-modif{
+.open-button{
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10.24px;
+	justify-content: baseline;
+	border: 0;
+	gap: 4.24px;
+}
+
+.open-button i{
+	font-size: 15.58px;
+}
+
+.button{
+	text-align: center;
+	background-color: transparent;
+	border: 0;
+	font-family: 'Work Sans';
+	font-size: 14px;
 }
 
 .buttons-filter{
@@ -262,7 +274,7 @@ input[type="submit"]{
 
 footer nav ul {
 	display: flex;
-	justify-content:flex-end;
+	justify-content: flex-end;
 	width: auto;
 	height: 60px;
 	background-color: #FFF;
@@ -270,3 +282,71 @@ footer nav ul {
 	font-weight: 300;
 }
 
+dialog {
+	width: fit-content;
+	height: fit-content;
+	border-color: #FFF;
+	border-radius: 10px;
+}
+
+.modal-wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 610px;
+	height: 648px;
+}
+
+dialog::backdrop{
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-wrapper .close-button{
+	margin-top: 8px;
+	margin-left: 545px;
+	width: 24px;
+	height: 24px;
+	color: #000;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 20px;
+	color: #000;
+}
+
+#modal-title{
+	display: flex;
+	justify-content: center;
+	height: 30px;
+	font-family: 'Work Sans';
+	font-size: 26px;
+	font-weight: 400;
+	margin-top: 10px;
+}
+
+
+#modal-gallery{
+	height: 424px;
+	width: 409.5px;
+	display: flex;
+	gap: 6.3px;
+	border: solid #B3B3B3 1px;
+	margin: 46px 104.94px 38px;
+}
+
+#ajoutphoto{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	color: #FFF;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	border-style: solid;
+	border-color: rgba(29, 97, 84, 1);
+	background-color: rgba(29, 97, 84, 1);
+	margin-bottom: 35px ;
+}
