@@ -69,6 +69,7 @@ export async function modeEditor() {
         }
     }
     getWorks();
+    deleteWorks();
 
 }
 
@@ -92,8 +93,36 @@ async function getWorks() {
         const modalWorks = document.querySelector("#modal-gallery").innerHTML += `
             <div class="projet-selection" id="${work.id}">
                 <img class="work-img" src=${work.imageUrl} alt="${work.title}">
-                <button class="delete-work"><i class="fa-solid fa-trash-can"></i></button>
+                <button class="delete-work" id="${work.id}"><i id="${work.id}" class="fa-solid fa-trash-can"></i></button>
             </div>
         `
     }
+}
+
+async function deleteWorks() {
+    let token = window.localStorage.getItem('token');
+    token = JSON.parse(token);
+    token = token.token;
+    let projets = window.localStorage.getItem('projets');
+
+    const worksElements = document.querySelectorAll("#modal-gallery .projet-selection button");
+
+    for (let i = 0; i < worksElements.length; i++) {
+        worksElements[i].addEventListener("click", async function (event) {
+            const id = event.target.id;
+
+            fetch("http://localhost:5678/api/works/" + id, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `BearerAuth ${token}`
+                }
+            });
+
+            const selectedWorksModal = document.querySelector(`#modal-gallery [id='${id}']`).style.display = "none";
+            const selectedWorksGallery = document.querySelector(`.gallery [id='${id}']`).style.display = "none";
+            let deleteWork = window.localStorage.removeItem("projets", `[id='${id}]`);
+        });
+    }
+
 }
