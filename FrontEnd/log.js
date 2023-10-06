@@ -19,7 +19,7 @@ function connexionFormulaire() {
 
             const token = await response.json();
             const valeurToken = JSON.stringify(token);
-            window.sessionStorage.setItem("token", valeurToken);
+            window.localStorage.setItem("token", valeurToken);
 
             document.location.href = "./index.html";
         }
