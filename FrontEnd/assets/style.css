@@ -283,8 +283,6 @@ footer nav ul {
 }
 
 dialog {
-	width: fit-content;
-	height: fit-content;
 	border-color: #FFF;
 	border-radius: 10px;
 }
