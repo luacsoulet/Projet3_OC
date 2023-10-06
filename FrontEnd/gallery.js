@@ -2,7 +2,7 @@ export async function genererGalerie() {
     //Récupération des projets eventuellement stockées dans le localStorage
     let projets = window.localStorage.getItem('projets');
 
-    if (projets == null) {
+    if (projets === null) {
         // Récupération des projets depuis l'API
         const reponse = await fetch("http://localhost:5678/api/works/");
         projets = await reponse.json();
