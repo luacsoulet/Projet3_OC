@@ -3,7 +3,7 @@ import { modeEditor } from './editor.js';
 
 genererGalerie();
 
-let token = window.sessionStorage.getItem('token');
+let token = window.localStorage.getItem('token');
 
 if (token != null) {
     token = JSON.parse(token);
