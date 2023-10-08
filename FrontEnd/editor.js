@@ -139,6 +139,40 @@ function modalAjoutPhoto() {
         galleryModal.style.display = "none";
         addProjectModal.style.display = "flex";
     });
+
+    //Ajout du code pour faire apparaître la photo mise dans le input file
+    let input = document.querySelector(".add-photo input");
+    let preview = document.querySelector(".add-photo");
+    let label = document.querySelector(".add-photo label");
+
+    input.addEventListener("change", () => {
+
+        label.style.opacity = 0;
+
+        let imgWork = input.files;
+        for (let i = 0; i < imgWork.length; i++) {
+            let image = document.createElement("img");
+            image.height = 193;
+            image.width = 129;
+            image.src = window.URL.createObjectURL(imgWork[i]);
+            image.classList.add("imageWork");
+            preview.appendChild(image);
+        }
+    })
+
+    //récupération de toutes les données du formulaire
+    let formulairePostWork = document.getElementById("add-form");
+    formulairePostWork.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const work = {
+            img: event.target.querySelector('.add-photo input').value,
+            title: event.target.querySelector("[name=add-title]").value,
+            category: event.target.querySelector("#add-categorie").value
+        };
+        console.log(work);
+        var formData = new FormData(formulairePostWork);
+        console.log(formData);
+    })
 }
 
 
