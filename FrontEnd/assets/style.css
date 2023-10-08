@@ -287,7 +287,7 @@ dialog {
 	border-radius: 10px;
 }
 
-.modal-wrapper{
+.modal-wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -312,7 +312,22 @@ dialog::backdrop{
 	color: #000;
 }
 
-#modal-title{
+.nav-button {
+	margin-top: -54px;
+	margin-right: 5px;
+}
+
+.return-button {
+	width: 24px;
+	height: 24px;
+	color: #000;
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 21px;
+	color: #000;
+}
+
+.gallery-modal #modal-title, .add-project #modal-title{
 	display: flex;
 	justify-content: center;
 	height: 30px;
@@ -322,6 +337,9 @@ dialog::backdrop{
 	margin-top: 10px;
 }
 
+.add-project #modal-title{
+	margin-bottom: 36px;				
+}
 
 #modal-gallery{
 	display: flex;
@@ -334,6 +352,68 @@ dialog::backdrop{
 	padding-bottom: 47px;
 }
 
+#add-form{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#add-work{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: fit-content;
+	width: 420px;
+	border-bottom: solid 1px #B3B3B3;
+	padding-bottom: 47px;
+}
+
+.add-photo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 420px;
+	height: 169px;
+	border-radius: 3px;
+	background: #E8F1F6;
+	margin-bottom: 9px;
+	overflow: hidden;
+}
+
+.add-photo i{
+	font-size: 76px;
+	color: rgba(185, 197, 204, 1);
+}
+
+#add-work label[for=img-input]{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 173px;
+	height: 36px;
+	margin-top: 8px;
+	border-radius: 50px;
+	background: rgba(203, 214, 220, 1);
+	color: rgba(48, 102, 133, 1);
+}
+
+#add-work input[type=file]{
+	display: none;
+}
+
+.add-photo p{
+	margin-top: 7px;
+	color: #444;
+	font-size: 10px;
+
+}
+.imageWork{
+	position: relative;
+	top: -60px ;
+}
+
 .projet-selection{
 	width: 76.863px;
 	height: 102.568px;
@@ -343,6 +423,51 @@ dialog::backdrop{
 .work-img{
 	width: 100% ;
 	height: 102.568px;
+}
+
+.input-div, .option-div{
+	display: flex;
+	flex-direction: column;
+}
+
+#add-title, .select{
+	width: 420px;
+	height: 51px;
+	background: #FFF;
+	border: 0;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+#add-categorie{
+	width: 400px;
+	height: 51px;
+	border: 0;
+}
+
+label[for=add-title], label[for=add-categorie]{
+	font-family: 'Work Sans';
+	color: #3D3D3D;
+	font-size: 14px;
+	font-weight: 500;
+	margin-top: 21px;
+	margin-bottom: 10px;
+}
+
+
+option, select{
+	font-family: 'Work Sans';
+}
+
+#valider{
+	width: 237px;
+	height: 36px;
+	border: 0;
+	border-radius: 60px;
+	background: #A7A7A7;
+	color: #FFF;
+	font-family: 'Syne';
+	font-weight: 700;
+	margin-top: 32px;
 }
 
 .delete-work{
@@ -380,3 +505,4 @@ dialog::backdrop{
 	background-color: rgba(29, 97, 84, 1);
 	margin-bottom: 35px ;
 }
+
