@@ -40,26 +40,36 @@ export async function modeEditor() {
     const dialogModal = document.createElement("dialog");
     dialogModal.setAttribute("class", "modal");
     dialogModal.setAttribute("id", "modal");
-    dialogModal.innerHTML = `
-        <div class="modal-wrapper">
+
+    const galleryModal = document.createElement("div");
+    galleryModal.setAttribute("class", "modal-wrapper");
+    galleryModal.classList.add("gallery-modal");
+    galleryModal.innerHTML = `
             <button class="close-button fa-solid fa-xmark"></button>
             <h3 id="modal-title">Galerie photo</h3>
             <div id="modal-gallery"></div>
-            <button id="ajoutphoto">Ajouter une photo</button>
-        </div>`
+            <button id="ajoutphoto">Ajouter une photo</button>`
+
     parentDiv.insertBefore(dialogModal, headerDiv);
+    dialogModal.appendChild(galleryModal);
+
+    // const addProjectModal = document.querySelector(".add-project");
+    // addProjectModal.style.display = "none";
 
     const modal = document.querySelector('#modal');
     const openModal = document.querySelector('.open-button');
-    const closeModal = document.querySelector('.close-button');
+    modalAjoutPhoto();
+    const closeModal = document.querySelectorAll('#modal .close-button');
 
     openModal.addEventListener("click", () => {
         modal.showModal();
     })
 
-    closeModal.addEventListener("click", () => {
-        modal.close();
-    })
+    for (let i = 0; i < closeModal.length; i++) {
+        closeModal[i].addEventListener("click", () => {
+            modal.close();
+        })
+    }
 
     window.onclick = function (e) {
         if (e.target == modal) {
@@ -72,6 +82,66 @@ export async function modeEditor() {
     deleteWorks();
 
 }
+
+function modalAjoutPhoto() {
+
+    const btnAddWorks = document.querySelector('#ajoutphoto');
+
+    const galleryModal = document.querySelector(".gallery-modal");
+    const dialogModal = document.querySelector("dialog");
+    galleryModal.style.display = "none";
+    const addProjectModal = document.createElement("div");
+    addProjectModal.setAttribute("class", "modal-wrapper");
+    addProjectModal.classList.add("add-project");
+    addProjectModal.innerHTML = `
+            <div class="nav-button">
+                <button class="return-button fa-solid fa-arrow-left"></button>
+                <button class="close-button fa-solid fa-xmark"></button>
+            </div>
+            <form id="add-form" enctype="multipart/form-data" method="post">
+                <h3 id="modal-title">Ajout photo</h3>
+                <div id="add-work">
+                    <div class="add-photo">
+                        <i class="fa-regular fa-image"></i>
+                        <label for="img-input">+ Ajout photo</label>
+                        <input type="file" id="img-input" name="img-input" accept=".jpg, .jpeg, .png" required="true"/>
+                        <p>jpg, png : 4mo max</p>
+                    </div>
+                    <div class="input-div">
+                        <label for="add-title">Titre</label>
+                        <input type="text" id="add-title" name="add-title" required="true"></input>
+                    </div>
+                    <div class="option-div">
+                        <label for="add-categorie">Catégorie</label>
+                        <div class="select">
+                            <select id="add-categorie" required="true">
+                                <option value=""></option>
+                                <option value="objets">Objets</option>
+                                <option value="appartements">Appartements</option>
+                                <option value="hot-and-res">Hotels & restaurants</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="valider">Valider</button>
+            </form>`
+
+    dialogModal.appendChild(addProjectModal);
+
+
+    const returnModal = document.querySelector('.return-button');
+    returnModal.addEventListener("click", () => {
+        addProjectModal.style.display = "none";
+        galleryModal.style.display = "flex";
+    })
+
+    btnAddWorks.addEventListener("click", () => {
+        galleryModal.style.display = "none";
+        addProjectModal.style.display = "flex";
+    });
+}
+
+
 
 async function getWorks() {
     let projets = window.localStorage.getItem('projets')
