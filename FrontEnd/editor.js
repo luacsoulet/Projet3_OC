@@ -80,6 +80,7 @@ export async function modeEditor() {
     }
     getWorks();
     deleteWorks();
+    postWork();
 
 }
 
@@ -98,27 +99,27 @@ function modalAjoutPhoto() {
                 <button class="return-button fa-solid fa-arrow-left"></button>
                 <button class="close-button fa-solid fa-xmark"></button>
             </div>
-            <form id="add-form" enctype="multipart/form-data" method="post">
+            <form id="add-form" method="post">
                 <h3 id="modal-title">Ajout photo</h3>
                 <div id="add-work">
                     <div class="add-photo">
                         <i class="fa-regular fa-image"></i>
-                        <label for="img-input">+ Ajout photo</label>
-                        <input type="file" id="img-input" name="img-input" accept=".jpg, .jpeg, .png" required="true"/>
+                        <label for="image">+ Ajout photo</label>
+                        <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required="true"/>
                         <p>jpg, png : 4mo max</p>
                     </div>
                     <div class="input-div">
-                        <label for="add-title">Titre</label>
-                        <input type="text" id="add-title" name="add-title" required="true"></input>
+                        <label for="title">Titre</label>
+                        <input type="text" id="title" name="title" required="true"></input>
                     </div>
                     <div class="option-div">
-                        <label for="add-categorie">Catégorie</label>
+                        <label for="category">Catégorie</label>
                         <div class="select">
-                            <select id="add-categorie" required="true">
+                            <select id="category" required="true">
                                 <option value=""></option>
-                                <option value="objets">Objets</option>
-                                <option value="appartements">Appartements</option>
-                                <option value="hot-and-res">Hotels & restaurants</option>
+                                <option value="1">Objets</option>
+                                <option value="2">Appartements</option>
+                                <option value="3">Hotels & restaurants</option>
                             </select>
                         </div>
                     </div>
@@ -141,13 +142,17 @@ function modalAjoutPhoto() {
     });
 
     //Ajout du code pour faire apparaître la photo mise dans le input file
-    let input = document.querySelector(".add-photo input");
-    let preview = document.querySelector(".add-photo");
-    let label = document.querySelector(".add-photo label");
+    const input = document.querySelector(".add-photo input");
+    const preview = document.querySelector(".add-photo");
+    const label = document.querySelector(".add-photo label");
+    const img = document.querySelector(".add-photo i");
+    const text = document.querySelector(".add-photo p");
 
     input.addEventListener("change", () => {
 
         label.style.opacity = 0;
+        img.style.opacity = 0;
+        text.style.opacity = 0;
 
         let imgWork = input.files;
         for (let i = 0; i < imgWork.length; i++) {
@@ -160,18 +165,30 @@ function modalAjoutPhoto() {
         }
     })
 
-    //récupération de toutes les données du formulaire
-    let formulairePostWork = document.getElementById("add-form");
-    formulairePostWork.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        const work = {
-            img: event.target.querySelector('.add-photo input').value,
-            title: event.target.querySelector("[name=add-title]").value,
-            category: event.target.querySelector("#add-categorie").value
-        };
-        console.log(work);
-        var formData = new FormData(formulairePostWork);
-        console.log(formData);
+    // //récupération de toutes les données du formulaire
+    const formulairePostWork = document.getElementById("add-form");
+    // formulairePostWork.addEventListener("submit", async function (event) {
+    //     event.preventDefault();
+    //     const work = {
+    //         img: event.target.querySelector('.add-photo input').value,
+    //         title: event.target.querySelector("[name=add-title]").value,
+    //         categoryId: event.target.querySelector("#add-categorie").value
+    //     };
+    //     console.log(work);
+    // })
+
+
+    const submitBtn = document.querySelector("#valider");
+    const selectInputs = document.querySelector('#add-form select');
+    const titleInputs = document.querySelector('.input-div input');
+    const imageInputs = document.querySelector('.add-photo input');
+
+    formulairePostWork.addEventListener("change", () => {
+        if (selectInputs.value != "" && titleInputs.value != "" && imageInputs.value != "") {
+            submitBtn.style.backgroundColor = "#1d6154";
+        } else {
+            submitBtn.style.backgroundColor = "#A7A7A7";
+        }
     })
 }
 
@@ -207,6 +224,7 @@ async function deleteWorks() {
     let token = window.localStorage.getItem('token');
     token = JSON.parse(token);
     token = token.token;
+
     let projets = window.localStorage.getItem('projets');
 
     const worksElements = document.querySelectorAll("#modal-gallery .projet-selection button");
@@ -229,4 +247,51 @@ async function deleteWorks() {
         });
     }
 
+}
+
+async function postWork() {
+
+    let token = window.localStorage.getItem('token');
+    token = JSON.parse(token);
+    token = token.token;
+
+    // let projets = window.localStorage.getItem('projets');
+    //récupération de toutes les données du formulaire
+    let form = document.getElementById("add-form")
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        formData.append(
+            "category", `${e.target.querySelector("#category").value}`
+        )
+
+        const formObject = Object.fromEntries(formData);
+
+        console.log(formObject);
+
+        e.currentTarget.reset();
+
+        const headContent = {
+            "Authorization": `BearerAuth ${token}`
+        };
+
+        const response = await fetch("http://localhost:5678/api/works", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+            body: formObject
+        });
+        const data = await response.json();
+
+
+        console.log(data)
+
+        // const value = await response.json();
+        // const projectItem = JSON.stringify(value);
+
+        // window.localStorage.setItem("projets", projectItem);
+    });
 }
