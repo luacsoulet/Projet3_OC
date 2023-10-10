@@ -387,7 +387,7 @@ dialog::backdrop{
 	color: rgba(185, 197, 204, 1);
 }
 
-#add-work label[for=img-input]{
+#add-work label[for=image]{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -430,7 +430,7 @@ dialog::backdrop{
 	flex-direction: column;
 }
 
-#add-title, .select{
+#title, .select{
 	width: 420px;
 	height: 51px;
 	background: #FFF;
@@ -438,13 +438,13 @@ dialog::backdrop{
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 }
 
-#add-categorie{
+#category{
 	width: 400px;
 	height: 51px;
 	border: 0;
 }
 
-label[for=add-title], label[for=add-categorie]{
+label[for=title], label[for=category]{
 	font-family: 'Work Sans';
 	color: #3D3D3D;
 	font-size: 14px;
@@ -454,9 +454,9 @@ label[for=add-title], label[for=add-categorie]{
 }
 
 
-option, select{
+/* option, select{
 	font-family: 'Work Sans';
-}
+} */
 
 #valider{
 	width: 237px;

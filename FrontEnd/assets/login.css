@@ -2,6 +2,12 @@ body{
     width: auto;
     height: 1024px;
 }
+nav li{
+    padding: 0 10px;
+    font-size: 16px;
+    font-family: 'Work Sans';
+    font-weight: 300;
+}
 
 header li:nth-child(3){
     color: #000;
