@@ -20,6 +20,7 @@ export async function genererGalerie() {
     function genererProjets(projets) {
         for (let i = 0; i < projets.length; i++) {
 
+            //Pour chaques projets génération du code nécessaires a son affichage
             const card = projets[i];
             sectionGallery.innerHTML += `
                 <figure id="${card.id}">
@@ -29,8 +30,10 @@ export async function genererGalerie() {
         }
     }
 
+    //Sélection des bouttons de filtre
     const divButtons = document.querySelector(".buttons-filter");
 
+    //Création des différents boutons de filtres
     const buttonAll = document.createElement("button");
     buttonAll.innerText = "Tous";
     buttonAll.setAttribute("id", "un");
@@ -48,11 +51,13 @@ export async function genererGalerie() {
     buttonHotRes.innerText = "Hôtels & restaurants";
     buttonHotRes.setAttribute("id", "quatre");
 
+    //Rattachement des boutons a la div contenant tout les boutons
     divButtons.appendChild(buttonAll);
     divButtons.appendChild(buttonObjects);
     divButtons.appendChild(buttonAppartments);
     divButtons.appendChild(buttonHotRes);
 
+    //Ajout des événement lors du click sur les différents boutons
     buttonAll.addEventListener("click", function () {
         document.querySelector(".gallery").innerHTML = "";
         document.querySelector(".active").setAttribute("class", "");
@@ -90,6 +95,7 @@ export async function genererGalerie() {
         genererProjets(projetsHotRes);
     });
 
+    //Par défaut générer tout les projets
     genererProjets(projets);
 
 
