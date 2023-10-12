@@ -172,7 +172,7 @@ li a:hover {
 #portfolio h2 {
 	text-align: center;
 }
-
+/*****Bouton d'ouverture de la dialog******/
 .open-button{
 	display: flex;
 	justify-content: baseline;
@@ -183,7 +183,7 @@ li a:hover {
 .open-button i{
 	font-size: 15.58px;
 }
-
+/*****Bouton******/
 .button{
 	text-align: center;
 	background-color: transparent;
@@ -191,7 +191,7 @@ li a:hover {
 	font-family: 'Work Sans';
 	font-size: 14px;
 }
-
+/*****Div des boutons de filtre******/
 .buttons-filter{
 	display: flex;
 	justify-content: center;
@@ -200,7 +200,7 @@ li a:hover {
 	height: auto;
 	width: 585px;
 }
-
+/*****Boutons de filtre******/
 .buttons-filter button{
 	height: 37px;
 	border: 1px solid #1D6154 ;
@@ -227,19 +227,22 @@ li a:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
 #contact {
 	width: 50%;
 	margin: auto;
 }
+
 #contact > * {
 	text-align: center;
 
 }
+
 #contact h2{
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
 	margin-top:30px;
@@ -256,6 +259,7 @@ li a:hover {
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -281,12 +285,12 @@ footer nav ul {
 	font-family: 'Work Sans';
 	font-weight: 300;
 }
-
+/*****dialog pour les modals******/
 dialog {
 	border-color: #FFF;
 	border-radius: 10px;
 }
-
+/*****Structure des modals******/
 .modal-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -295,11 +299,11 @@ dialog {
 	width: 610px;
 	height: 648px;
 }
-
+/*****couleur de fond de la dialog******/
 dialog::backdrop{
 	background-color: rgba(0, 0, 0, 0.3);
 }
-
+/*****Bouton de fermeture des modals ******/
 .modal-wrapper .close-button{
 	margin-top: 8px;
 	margin-left: 545px;
@@ -316,7 +320,7 @@ dialog::backdrop{
 	margin-top: -54px;
 	margin-right: 5px;
 }
-
+/*****Bouton de retour dans la modal d'ajout de project******/
 .return-button {
 	width: 24px;
 	height: 24px;
@@ -326,7 +330,7 @@ dialog::backdrop{
 	font-size: 21px;
 	color: #000;
 }
-
+/*****Titres des modals******/
 .gallery-modal #modal-title, .add-project #modal-title{
 	display: flex;
 	justify-content: center;
@@ -336,11 +340,11 @@ dialog::backdrop{
 	font-weight: 400;
 	margin-top: 10px;
 }
-
+/*****Titre de la modal d'ajout de project******/
 .add-project #modal-title{
 	margin-bottom: 36px;				
 }
-
+/*****Modal de suppression des projets******/
 #modal-gallery{
 	display: flex;
 	flex-wrap: wrap;
@@ -350,14 +354,15 @@ dialog::backdrop{
 	border-bottom: solid #B3B3B3 1px;
 	margin: 46px 104.94px 38px;
 	padding-bottom: 47px;
+	overflow-y: scroll;
 }
-
+/*****formulaire d'ajout de contenue******/
 #add-form{
 	display:flex;
 	flex-direction: column;
 	align-items: center;
 }
-
+/*****div contenant le formulaire******/
 #add-work{
 	display:flex;
 	flex-direction: column;
@@ -368,7 +373,7 @@ dialog::backdrop{
 	border-bottom: solid 1px #B3B3B3;
 	padding-bottom: 47px;
 }
-
+/*****div contenant l'input d'ajout de photo******/
 .add-photo{
 	display: flex;
 	flex-direction: column;
@@ -381,12 +386,12 @@ dialog::backdrop{
 	margin-bottom: 9px;
 	overflow: hidden;
 }
-
+/*****logo image******/
 .add-photo i{
 	font-size: 76px;
 	color: rgba(185, 197, 204, 1);
 }
-
+/***** apparence du label de l'input file******/
 #add-work label[for=image]{
 	display: flex;
 	align-items: center;
@@ -398,17 +403,18 @@ dialog::backdrop{
 	background: rgba(203, 214, 220, 1);
 	color: rgba(48, 102, 133, 1);
 }
-
+/*****input file pour l'image******/
 #add-work input[type=file]{
 	display: none;
 }
-
+/*****texte détaillant format et taille de l'image******/
 .add-photo p{
 	margin-top: 7px;
 	color: #444;
 	font-size: 10px;
 
 }
+/*****image en previsualisation ******/
 .imageWork{
 	position: relative;
 	top: -60px ;
@@ -429,7 +435,7 @@ dialog::backdrop{
 	display: flex;
 	flex-direction: column;
 }
-
+/*****champs de title et div contenant category ******/
 #title, .select{
 	width: 420px;
 	height: 51px;
@@ -437,13 +443,14 @@ dialog::backdrop{
 	border: 0;
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 }
-
+/*****champ de category******/
 #category{
 	width: 400px;
 	height: 51px;
 	border: 0;
 }
 
+/***** label de title et category ****/
 label[for=title], label[for=category]{
 	font-family: 'Work Sans';
 	color: #3D3D3D;
@@ -452,12 +459,7 @@ label[for=title], label[for=category]{
 	margin-top: 21px;
 	margin-bottom: 10px;
 }
-
-
-/* option, select{
-	font-family: 'Work Sans';
-} */
-
+/*****Bouton de validation du formulaire d'ajout de photo******/
 #valider{
 	width: 237px;
 	height: 36px;
@@ -469,7 +471,7 @@ label[for=title], label[for=category]{
 	font-weight: 700;
 	margin-top: 32px;
 }
-
+/*****Bouton de suppression des projets dans modal gallery ******/
 .delete-work{
 	position: relative;
 	bottom: 100px;
@@ -483,12 +485,12 @@ label[for=title], label[for=category]{
 	border-radius: 2px;
 	background-color: #000;
 }
-
+/*****logo poubelle du bouton de suppression ******/
 .delete-work i{
 	font-size: 10px;
 	color: #FFF;
 }
-
+/*****Bouton d'ouverture de la modal d'ajout de projet ******/
 #ajoutphoto{
 	display: flex;
 	align-items: center;
