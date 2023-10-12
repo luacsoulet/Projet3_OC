@@ -76,6 +76,8 @@ export function modeEditor() {
     //Sélection du bouton qui vas servir à ouvrir les modals
     const openModal = document.querySelector('.open-button');
 
+    modalAjoutPhoto();
+
     //Sélection du bouton pour fermer les modals
     const closeModal = document.querySelectorAll('#modal .close-button');
 
@@ -94,6 +96,7 @@ export function modeEditor() {
             modal.close();
             //La modal gallery apparaît et la modal d'ajout de project disparaît
             galleryModal.style.display = "flex";
+            addProjectModal.style.display = "none";
         })
     }
 
@@ -107,7 +110,6 @@ export function modeEditor() {
         }
     }
     getWorks();
-    modalAjoutPhoto();
     postWork();
 
 }
